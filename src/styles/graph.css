@@ -1,0 +1,60 @@
+.col-sm-12 {
+    width: 530px;
+    height: 12px;
+    border: none;
+}
+
+.full{
+    margin:1px;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #0ec35f;
+}
+.empty{
+    margin:1px;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.fondVote {
+    background-image: url(https://www.atomisation.net/marker/in5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+
+.tokyo {
+    position: absolute;
+    top: 197px;
+    left: 44px;
+    width: 133px;
+}
+.monty {
+    position: absolute;
+    top: 416px;
+    left: 41px;
+    width: 210px;
+}
+.truffaud {
+    position: absolute;
+    top: 14px;
+    left: 406px;
+    width: 400px;
+}
+
+.bowie {
+    position: absolute;
+    top: 477px;
+    width: 365px;
+    left: 385px;
+}
+.beaubourg {
+    position: absolute;
+    top: 296px;
+    left: 595px;
+    width: 262px;
+}

@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+td,
+label, .list-action {
+  color: whitesmoke;
+  padding: 1rem;
+}
