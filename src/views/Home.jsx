@@ -53,7 +53,7 @@ export default function Home() {
 
     socket.on("votes", data => {
         console.log("voteee",  data );
-       setDisplayGraph(true);
+        setDisplayGraph(true);
     })
 
     return (

@@ -18,7 +18,7 @@ export default function AdminDemoTel() {
 
     function handleAdminTel(xx) {
         console.log("222",xx)
-        socket.emit('TelSequenceur', xx);
+        socket.emit('TelSequenceur', [0, xx, 0]);
     }
 
     return (

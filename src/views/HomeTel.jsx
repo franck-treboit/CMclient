@@ -18,6 +18,9 @@ export default function HomeTel() {
     const [displayAvatar, setDisplayAvatar] = useState(false);
     const [displayEcranRange, setDisplayEcranRange] = useState(false);
     const [displayEcranActionTel, setDisplayEcranActionTel] = useState(false);
+    const [avatar, setAvatar] = useState({});
+    //const [PreviousAvatar, setDisplayPreviousAvatar] =useState({});
+    const [medias, setMedias] = useState([]);
     // utilisation du socket
     const [socket,setSocket] = useState( io(`${process.env.REACT_APP_BACKEND_URL}`))
     //générer un id unique
@@ -29,37 +32,53 @@ export default function HomeTel() {
 
     useEffect(() => {
         socket.emit("registerTel", idUnique );
+        socket.on('choixAffichageTel', function(data) {
+            console.log('je suis ici !!!!!!!', data[2]);
+            if (data[2]) setAvatar(data[2]);
+        });
     }, [])
 
-        socket.on("choixAffichageTel", data => {
-            console.log("data", data);
-            if ( data[1] == 2) {
-                setDisplayAvatar(true);
-                setDisplayEcranRange(true);
-                setDisplayEcranActionTel(false);
-            } else if ( data[1] == 3) {
-                setDisplayAvatar(true);
-                setDisplayEcranRange(false);
-                setDisplayEcranActionTel(true);
-            } else {
-                setDisplayAvatar(false);
-                setDisplayEcranRange(false);
-                setDisplayEcranActionTel(false);
-            }
-        })
+    // useEffect(() => {
+        // socket.on('choixAffichageTel', function(avatar) {
+        //  setAvatar(avatar);
+        // });
+
+    // }, []);
+
+    socket.on("choixAffichageTel", data => {
+        console.log("data y es tu", data);
+        if ( data[1] == 2) {
+            setDisplayAvatar(true);
+            setDisplayEcranRange(true);
+            //setDisplayPreviousAvatar(false) ;
+            setDisplayEcranActionTel(false);
+        } else if ( data[1][1] == 3) {
+            setMedias(data[0]);
+            //setDisplayPreviousAvatar(true) ;
+            //setDisplayAvatar(true);
+            setDisplayEcranRange(false);
+            setDisplayEcranActionTel(true);
+        } else {
+            setDisplayAvatar(false);
+            setDisplayEcranRange(false);
+            setDisplayEcranActionTel(false);
+        }
+    })
 
     // socket.on('privateRegister', avatar => {
     //     console.log("j'ai bien reçu mon avatar", avatar)
  
     // })
+    //{PreviousAvatar && <Avatar socket={socket} />}
+
 
     return (
         <div className="home-tel">
             <h1>BonGEOurrE</h1>
-              {displayAvatar &&  <Avatar socket={socket} />}
-              {displayEcranRange &&  <EcranRange socket={socket} />}
-              {displayEcranActionTel &&  <EcranActionTel  socket={socket} />}
+            {displayAvatar && <Avatar socket={socket} avatar={avatar} />}
+            {displayEcranRange && <EcranRange socket={socket} />}
+            {displayEcranActionTel && <EcranActionTel socket={socket} medias={medias} />}
             <Chat />
         </div>
-    )
+    );
 };
