@@ -17,8 +17,6 @@ console.log("console log du socket dans asideline", socket)
 
 <li> 
 
-
-
 <p><span className="aside-span" >Machintruc</span> has prouted</p>
 </li>
     )
