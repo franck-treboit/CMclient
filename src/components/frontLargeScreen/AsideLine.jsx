@@ -1,12 +1,12 @@
 import React from 'react';
 import './../../styles/aside.css';
-import Avatar from './../Avatar';
+
 
 
 
 export default function AsideLine({socket}) {
 
-console.log("console log du socket problématique", socket)
+console.log("console log du socket dans asideline", socket)
 
     return (
     //     <li> 
@@ -17,7 +17,7 @@ console.log("console log du socket problématique", socket)
 
 <li> 
 
-<Avatar socket = {socket} />
+
 
 <p><span className="aside-span" >Machintruc</span> has prouted</p>
 </li>

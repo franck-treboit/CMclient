@@ -41,13 +41,12 @@ export default function EcranRange(props) {
 	function handleVoteMedia(e) {
         e.preventDefault();
 		props.socket.emit('send-media', choices);
-		console.log("j'ai compris qu'il fallait handleVote Media");
     }
 
     function sendVote(e){
         let votes = [choices[0].value, choices[1].value, choices[2].value, choices[3].value, choices[4].value]
-        console.log(votes);
         e.preventDefault();
+        alert("Well done buddy, your vote has been sent to the magic box!");
         props.socket.emit('send-votes', votes);
     }
     
@@ -70,10 +69,6 @@ export default function EcranRange(props) {
     //composant qui map à travers le tableau de choix potentiels pour proposer à l'utilisateur un input range par choix. Les valeurs des inputs lui remontent grâce à la callback
 	return (
 		<div>
-			<button className="vote" onClick={handleVoteMedia}>
-				VOTER pour CE media
-			</button>
-			--{cle}--
 			<form onSubmit={handleVoteMedia}>
                 <p>Nobody knows Chris Marker.
                     But do you know these things?
