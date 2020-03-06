@@ -24,7 +24,7 @@ console.log("ce sont les médias", medias)
         <div className ="mediaBB" key={key} onClick={ (e) => handleVoteMedia(media)}>
           {media.type === "image" 
           ? 
-          <img src={media.media_url}></img>
+          <img src={media.media_url} className="mediaCC"></img>
           : media.type === "video" 
           ?
           <iframe src={media.media_url}>

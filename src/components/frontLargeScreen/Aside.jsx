@@ -8,10 +8,10 @@ export default function Aside({socket}) {
         <aside>
             <h2>was passiert???</h2>
 
-            <ul>
+
         <AsideLine socket = {socket} />
         
-    </ul>
+
         </aside>
     )
 }
