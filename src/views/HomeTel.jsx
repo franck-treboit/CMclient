@@ -77,7 +77,7 @@ export default function HomeTel() {
             <h1>BonGEOurrE</h1>
             {displayAvatar && <Avatar socket={socket} avatar={avatar} />}
             {displayEcranRange && <EcranRange socket={socket} />}
-            {displayEcranActionTel && <EcranActionTel socket={socket} medias={medias} />}
+            {displayEcranActionTel && <EcranActionTel socket={socket} medias={medias} avatar={avatar} />}
             <Chat />
         </div>
     );

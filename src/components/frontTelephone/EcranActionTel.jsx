@@ -7,7 +7,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 // const apiHandler  = new ApiHandler();
 
-export default function EcranActionTel({socket, medias}) {
+export default function EcranActionTel({socket, medias, avatar}) {
 
 console.log("ce sont les médias", medias)
 
@@ -15,12 +15,13 @@ console.log("ce sont les médias", medias)
 
   return (
     <div className="list-action">
-      mon web socket tel
-      {medias ? medias.map(media => {
+
+  <p>Dear {avatar.nom}, please click on the media you yourself want to vote for so that we know what media you, as a group, wish to see. Please.</p>
+      {medias ? medias.map((media, key) => {
       return <>
 
-        <p>{media._id}</p>
-        <div className ="mediaBB" id="media" onClick={ (e) => handleVoteMedia(media)}>
+        {/* <p>{media._id}</p> */}
+        <div className ="mediaBB" key={key} onClick={ (e) => handleVoteMedia(media)}>
           {media.type === "image" 
           ? 
           <img src={media.media_url}></img>
@@ -41,6 +42,7 @@ console.log("ce sont les médias", medias)
   function handleVoteMedia(media){
 
     socket.emit('send-vote-media', media );
+    alert(`very well ${avatar.nom}, we have registered your vote`)
     console.log("j'ai compris qu'il fallait handleVote Media", media)
   }
 
