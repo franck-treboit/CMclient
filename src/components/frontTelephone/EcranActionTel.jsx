@@ -41,7 +41,7 @@ console.log("ce sont les médias", medias)
 
   function handleVoteMedia(media){
 
-    socket.emit('send-vote-media', media );
+    socket.emit('send-vote-media', [media, avatar.nom ]);
     alert(`very well ${avatar.nom}, we have registered your vote`)
     console.log("j'ai compris qu'il fallait handleVote Media", media)
   }

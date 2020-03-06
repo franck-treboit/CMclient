@@ -10,9 +10,7 @@ export default function Aside({socket}) {
 
             <ul>
         <AsideLine socket = {socket} />
-        <AsideLine socket = {socket}/>
-        <AsideLine socket = {socket}/>
-        <AsideLine socket = {socket}/>
+        
     </ul>
         </aside>
     )

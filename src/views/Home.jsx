@@ -64,6 +64,10 @@ export default function Home() {
         setDisplayGraph(true);
     })
 
+    socket.on("media_choisi", media => {
+        console.log("j'ai vu qu'ils ont voté", media)
+    })
+
     return (
         <div className="home">
             <main>
@@ -72,7 +76,7 @@ export default function Home() {
               {displayMedia &&  <DisplayMedia  socket={socket}  sequence={displaySequence} />}
               {displayVideo &&  <DisplayVideo  socket={socket}  sequence={displaySequence}/>}
             </main>
-            <Aside socket={socket} />
+            <Aside socket={socket}  />
         </div>
     )
 }
