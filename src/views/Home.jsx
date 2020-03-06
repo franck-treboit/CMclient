@@ -7,6 +7,8 @@ import './../styles/style.css';
 import DisplayPhoto from "../components/frontLargeScreen/DisplayPhoto";
 import DisplayGraph from './../components/frontLargeScreen/DisplayGraph';
 import DisplayVideo from './../components/frontLargeScreen/DisplayVideo';
+import DisplayVideoA from './../components/frontLargeScreen/DisplayVideoA';
+import DisplayVideoB from './../components/frontLargeScreen/DisplayVideoB';
 import Aside from './../components/frontLargeScreen/Aside';
 import DisplayMedia from './../components/frontLargeScreen/DisplayMedia';
 
@@ -18,6 +20,8 @@ export default function Home() {
     const [displayGraph, setDisplayGraph] = useState(false);
     const [displayMedia, setDisplayMedia] = useState(false);
     const [displayVideo, setDisplayVideo] = useState(false);
+    const [displayVideoA, setDisplayVideoA] = useState(false);
+    const [displayVideoB, setDisplayVideoB] = useState(false);
     const [displaySequence, setDisplaySequence] = useState(1);
     const [socket, setSocket] = useState( io(`${process.env.REACT_APP_BACKEND_URL}`))
 
@@ -49,15 +53,37 @@ export default function Home() {
             setDisplayPhoto(false);
             setDisplayGraph(false);
             setDisplayVideo(true);
+            setDisplayVideoA(false);
+            setDisplayVideoB(false);
         } else if ( data == 5) {
             setDisplayPhoto(true);
             setDisplayGraph(false);
-            setDisplayVideo(true);
+            setDisplayVideo(false);
+            setDisplayVideoA(true);
+            setDisplayVideoB(false);
         } else if ( data == 6) {
             setDisplayPhoto(true);
             setDisplayGraph(false);
-            setDisplayVideo(true);
-        }    })
+            setDisplayVideoA(false);
+            setDisplayVideo(false);
+            setDisplayVideoB(true);
+         } else if ( data == 7) {
+            setDisplayPhoto(true);
+            setDisplayGraph(false);
+            setDisplayVideo(false);
+            setDisplayVideoB(false);
+          } else if ( data == 8) {
+            setDisplayPhoto(true);
+            setDisplayGraph(false);
+            setDisplayVideo(false);
+            setDisplayVideoB(false);
+        } else if ( data == 9) {
+            setDisplayPhoto(true);
+            setDisplayGraph(false);
+            setDisplayVideo(false);
+            setDisplayVideoB(false);
+        }
+})
 
     socket.on("votes", data => {
         console.log("voteee",  data );
@@ -75,6 +101,8 @@ export default function Home() {
               {displayGraph &&  <DisplayGraph  socket={socket}  sequence={displaySequence} />}
               {displayMedia &&  <DisplayMedia  socket={socket}  sequence={displaySequence} />}
               {displayVideo &&  <DisplayVideo  socket={socket}  sequence={displaySequence}/>}
+              {displayVideoA &&  <DisplayVideoA  socket={socket}  sequence={displaySequence}/>}
+              {displayVideoB &&  <DisplayVideoB  socket={socket}  sequence={displaySequence}/>}
             </main>
             <Aside socket={socket}  />
         </div>

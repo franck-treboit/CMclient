@@ -30,6 +30,13 @@ main {
     height: 100vh;
     background-image: url(http://www.atomisation.net/marker/backmedia.jpg);
 }
+.list-media-video {
+    width:900px;
+    top:50px;
+    left:50px;
+}
+
+
 
 @media screen and (max-width: 800px) {
     body {

@@ -34,16 +34,16 @@ export default function DisplayPhoto(props) {
             setMedia("");
         }
         if ( props.sequence == 6) {
-            setMedia("");
+            setMedia("https://www.atomisation.net/marker/screen7.jpg");
         }
         if ( props.sequence == 7) {
-            setMedia("");
+            setMedia("https://www.atomisation.net/marker/screen7.jpg");
         }
         if ( props.sequence == 8) {
-            setMedia("");
+            setMedia("https://www.atomisation.net/marker/screen8.jpg");
         }
         if ( props.sequence == 9) {
-            setMedia("");
+            setMedia("https://www.atomisation.net/marker/screen9.jpg");
         }
 
     });

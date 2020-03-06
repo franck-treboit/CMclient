@@ -14,7 +14,7 @@ export default function DisplayVideo(props) {
     return (
         <div className="list-media-video" id="liste-media">
             <video autoPlay="autoplay" controls autoPlay className="list-media-video">
-                <source src="https://www.atomisation.net/marker/jetee.mp4" type="video/mp4" />
+                <source src="https://www.atomisation.net/marker/bowie.mp4" type="video/mp4" />
             </video>
         </div>
     );
